@@ -11,13 +11,6 @@ class GestureSampleRoute extends StatelessWidget{
         title: Text(gestureSampleRoute),
       ),
       body: SmoothClose(),
-//      body: Column(
-//        children: <Widget>[
-//          GestureListen(),
-//          InkWellListen(),
-//          Text('滑动关闭'),
-//          SmoothClose(),
-        //],
       );
   }
 

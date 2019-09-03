@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'shared_preference_sample/shared_preference_sample.dart';
 import 'startup_name/statup_name.dart';
 import 'animatedlist_sample/animatedlist_sample.dart';
@@ -15,19 +16,42 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   static final String appTitle = "Fluter Study";
-  final _items = Set<String>();
+  final _listViewItems = <String>[];
+  final _routes = <String, WidgetBuilder>{};
 
   MyApp() : super() {
-    _items.add(SharedPreferenceSampleRoute.sharedPreferenceSample);
-    _items.add(AnimationControllerSampleRoute.animationControllerSample);
-    _items.add(LayoutSample1Route.layoutSampleRoute);
-    _items.add(LayoutSample2Route.layoutSampleRoute);
-    _items.add(WebSocketSampleRoute.webSocketSampleRoute);
-    _items.add(NetworkSampleRoute.networkSampleRoute);
-    _items.add(GestureSampleRoute.gestureSampleRoute);
-    _items.add(ImagesSampleRoute.imagesSampleRoute);
-    _items.add(AnimatedListRoute.animatedListSample);
-    _items.add(StartupNameRoute.startupName);
+    _initListViewItems();
+    _initRoutes();
+  }
+
+  ///初始化ListView中每一项的内容显示
+  _initListViewItems() {
+    _listViewItems.add(SharedPreferenceSampleRoute.sharedPreferenceSample);
+    _listViewItems.add(AnimationControllerSampleRoute.animationControllerSample);
+    _listViewItems.add(LayoutSample1Route.layoutSampleRoute);
+    _listViewItems.add(LayoutSample2Route.layoutSampleRoute);
+    _listViewItems.add(WebSocketSampleRoute.webSocketSampleRoute);
+    _listViewItems.add(NetworkSampleRoute.networkSampleRoute);
+    _listViewItems.add(GestureSampleRoute.gestureSampleRoute);
+    _listViewItems.add(ImagesSampleRoute.imagesSampleRoute);
+    _listViewItems.add(AnimatedListRoute.animatedListSample);
+    _listViewItems.add(StartupNameRoute.startupName);
+  }
+
+  ///建立路由列表
+  ///
+  ///为ListView中的每一项设置相应的路由，然后通过[Navigator.pushNamed]的跳转的相应路由
+  _initRoutes() {
+    _routes[SharedPreferenceSampleRoute.sharedPreferenceSample] = (context) => SharedPreferenceSampleRoute();
+    _routes[AnimationControllerSampleRoute.animationControllerSample] = (context) => AnimationControllerSampleRoute();
+    _routes[LayoutSample1Route.layoutSampleRoute] = (context) => LayoutSample1Route();
+    _routes[LayoutSample2Route.layoutSampleRoute] = (context) => LayoutSample2Route();
+    _routes[WebSocketSampleRoute.webSocketSampleRoute] = (context) => WebSocketSampleRoute();
+    _routes[NetworkSampleRoute.networkSampleRoute] = (context) => NetworkSampleRoute();
+    _routes[GestureSampleRoute.gestureSampleRoute] = (context) => GestureSampleRoute();
+    _routes[ImagesSampleRoute.imagesSampleRoute] = (context) => ImagesSampleRoute();
+    _routes[AnimatedListRoute.animatedListSample] = (context) => AnimatedListRoute();
+    _routes[StartupNameRoute.startupName] = (context) => StartupNameRoute();
   }
 
   @override
@@ -38,36 +62,23 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
       ),
-      routes: {
-        SharedPreferenceSampleRoute.sharedPreferenceSample:(context) => SharedPreferenceSampleRoute(),
-        AnimationControllerSampleRoute.animationControllerSample:(context) => AnimationControllerSampleRoute(),
-        LayoutSample1Route.layoutSampleRoute:(context) => LayoutSample1Route(),
-        LayoutSample2Route.layoutSampleRoute:(context) => LayoutSample2Route(),
-        WebSocketSampleRoute.webSocketSampleRoute:(context) => WebSocketSampleRoute(),
-        NetworkSampleRoute.networkSampleRoute:(context) => NetworkSampleRoute(),
-        GestureSampleRoute.gestureSampleRoute:(context) => GestureSampleRoute(),
-        ImagesSampleRoute.imagesSampleRoute:(context) => ImagesSampleRoute(),
-        AnimatedListRoute.animatedListSample:(context)=> AnimatedListRoute(),
-        StartupNameRoute.startupName: (context)=>StartupNameRoute(),
-      },
-      home: MyHomePage(title: appTitle, items: _items),
+      routes: _routes,
+      home: MyHomePage(title: appTitle, items: _listViewItems),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
   final String title;
-  final Set<String> items;
+  final List<String> items;
   MyHomePage({Key key, this.title, this.items}) : super(key: key);
 
-  void _jumpDetailRoute (BuildContext context, String itemName) async{
+  ///通过列表项中的名字查找在_routes中映射并跳转到相应的路由
+  void _jumpDetailRoute(BuildContext context, String itemName) async {
     await Navigator.pushNamed(context, itemName);
 
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown
-    ]);
-
+    ///设置屏幕方向
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   }
 
   @override
@@ -80,20 +91,17 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
+  ///根据List构建一个ListView Widget,并设置点击回调方法
   Widget _bodyContent(BuildContext context) {
-    final tiles = items.map((item) {
-      return ListTile(
-        leading: Icon(Icons.apps),
-        title: Text(item),
-        onTap: ()=>_jumpDetailRoute(context, item),
-      );
-    });
-
-    final divided =
-        ListTile.divideTiles(context: context, tiles: tiles).toList();
-
-    return ListView(
-      children: divided,
+    return ListView.builder(
+      itemCount: items.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          leading: Icon(Icons.apps),
+          title: Text(items[index]),
+          onTap: () => _jumpDetailRoute(context, items[index]),
+        );
+      },
     );
   }
 }
