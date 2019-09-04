@@ -2,7 +2,9 @@
 
 [返回首页](../readme.md)
 
-##1. 创建一个列表
+##1. 文件名
+	main.dart
+##2. 创建一个列表
 由于这是一个学习项目，会有很多的案例设计和实现，所以要在主页面中创建一个ListView Widget, 其中的每一项代表一个案例。定义一个列表描述每一项案例的名字。并通过这个列表生成ListView Widget.
 
 	final _listViewItems = <String>[];
@@ -19,7 +21,7 @@
 	  _listViewItems.add(AnimatedListRoute.animatedListSample);
 	  _listViewItems.add(StartupNameRoute.startupName);
 	}
-##2.创建一个路由列表
+##3.创建一个路由列表
 在ListView Widget中每一项都会监听一个点击事件，用户通过点击每一项就会跳转到相应的路由。创建一个路由列表，然后可以通过Navigator.pushNamed的方法实现跳转功能.
 
 	final _routes = <String, WidgetBuilder>{};
@@ -39,7 +41,7 @@
 	  _routes[StartupNameRoute.startupName] = (context) => StartupNameRoute();
 	}
 
-##3. 根据列表创建ListView Widget
+##4. 根据列表创建ListView Widget
 	///根据List构建一个ListView Widget,并设置点击回调方法
 	Widget _bodyContent(BuildContext context) {
 		return ListView.builder(
@@ -54,13 +56,13 @@
 		);
 	}
 
-##4. 根据路由列表跳转到相应的路由
+##5. 根据路由列表跳转到相应的路由
 	///通过列表项中的名字查找在_routes中映射并跳转到相应的路由
 	void _jumpDetailRoute(BuildContext context, String itemName){
 		Navigator.pushNamed(context, itemName);
 	}
 
-##5. 构建主页面
+##6. 构建主页面
 	@override
 	  Widget build(BuildContext context) {
 	    return Scaffold(
@@ -70,5 +72,5 @@
 	      body: _bodyContent(context),
 	    );
 	  }
-##6. 效果图
+##7. 效果图
 ![效果图](./images/001-main_page.gif)

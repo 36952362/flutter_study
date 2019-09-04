@@ -4,4 +4,6 @@
 
 ##[001-项目首页的设定](./docs/001-main_page.md)
 
+##[002-创业公司起名](./docs/002-startup_name.md)
+
 ##[注意事项](./docs/notes.md)
