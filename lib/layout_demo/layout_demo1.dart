@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class LayoutSample1Route extends StatelessWidget {
-  static final String layoutSampleRoute = '构建布局1';
+  static final String layoutDemoRoute = '构建布局1';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(layoutSampleRoute),
+        title: Text(layoutDemoRoute),
       ),
       body: _buildContent(context),
     );

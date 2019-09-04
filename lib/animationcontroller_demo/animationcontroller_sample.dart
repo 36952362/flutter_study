@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class AnimationControllerSampleRoute extends StatefulWidget {
-  static final String animationControllerSample = '动画演示';
+  static final String animationControllerDemo = '动画演示';
 
   @override
   State<StatefulWidget> createState() => _AnimationControllerState();
@@ -16,7 +16,7 @@ class _AnimationControllerState extends State<AnimationControllerSampleRoute> wi
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AnimationControllerSampleRoute.animationControllerSample),
+        title: Text(AnimationControllerSampleRoute.animationControllerDemo),
       ),
       body: _buildContent(),
     );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LayoutSample2Route extends StatelessWidget {
-  static final String layoutSampleRoute = '构建布局2';
+  static final String layoutDemoRoute = '构建布局2';
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class LayoutSample2Route extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(layoutSampleRoute),
+        title: Text(layoutDemoRoute),
       ),
       body: OrientationBuilder(
         builder: (context, orientation) {

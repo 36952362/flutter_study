@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'shared_preference_sample/shared_preference_sample.dart';
-import 'startup_name/statup_name.dart';
-import 'animatedlist_sample/animatedlist_sample.dart';
-import 'images_sample/images_sample.dart';
-import 'gesture_sample/gesture_sample.dart';
-import 'network_sample/network_sample.dart';
+import 'shared_preference_demo/shared_preference_demo.dart';
+import 'startup_name_demo/statup_name_demo.dart';
+import 'animatedlist_demo/animatedlist_demo.dart';
+import 'images_demo/images_sample.dart';
+import 'gesture_demo/gesture_demo.dart';
+import 'network_demo/network_sample.dart';
 import 'websocket_sample/websocket_sample.dart';
-import 'layout_sample/layout_sample1.dart';
-import 'layout_sample/layout_sample2.dart';
-import 'animationcontroller_sample/animationcontroller_sample.dart';
+import 'layout_demo/layout_demo1.dart';
+import 'layout_demo/layout_demo2.dart';
+import 'animationcontroller_demo/animationcontroller_sample.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,14 +27,14 @@ class MyApp extends StatelessWidget {
   ///初始化ListView中每一项的内容显示
   _initListViewItems() {
     _listViewItems.add(SharedPreferenceSampleRoute.sharedPreferenceSample);
-    _listViewItems.add(AnimationControllerSampleRoute.animationControllerSample);
-    _listViewItems.add(LayoutSample1Route.layoutSampleRoute);
-    _listViewItems.add(LayoutSample2Route.layoutSampleRoute);
+    _listViewItems.add(AnimationControllerSampleRoute.animationControllerDemo);
+    _listViewItems.add(LayoutSample1Route.layoutDemoRoute);
+    _listViewItems.add(LayoutSample2Route.layoutDemoRoute);
     _listViewItems.add(WebSocketSampleRoute.webSocketSampleRoute);
     _listViewItems.add(NetworkSampleRoute.networkSampleRoute);
-    _listViewItems.add(GestureSampleRoute.gestureSampleRoute);
+    _listViewItems.add(GestureSampleRoute.gestureSampleRouteDemo);
     _listViewItems.add(ImagesSampleRoute.imagesSampleRoute);
-    _listViewItems.add(AnimatedListRoute.animatedListSample);
+    _listViewItems.add(AnimatedListRoute.animatedListDemo);
     _listViewItems.add(StartupNameRoute.startupName);
   }
 
@@ -43,14 +43,14 @@ class MyApp extends StatelessWidget {
   ///为ListView中的每一项设置相应的路由，然后通过[Navigator.pushNamed]的跳转的相应路由
   _initRoutes() {
     _routes[SharedPreferenceSampleRoute.sharedPreferenceSample] = (context) => SharedPreferenceSampleRoute();
-    _routes[AnimationControllerSampleRoute.animationControllerSample] = (context) => AnimationControllerSampleRoute();
-    _routes[LayoutSample1Route.layoutSampleRoute] = (context) => LayoutSample1Route();
-    _routes[LayoutSample2Route.layoutSampleRoute] = (context) => LayoutSample2Route();
+    _routes[AnimationControllerSampleRoute.animationControllerDemo] = (context) => AnimationControllerSampleRoute();
+    _routes[LayoutSample1Route.layoutDemoRoute] = (context) => LayoutSample1Route();
+    _routes[LayoutSample2Route.layoutDemoRoute] = (context) => LayoutSample2Route();
     _routes[WebSocketSampleRoute.webSocketSampleRoute] = (context) => WebSocketSampleRoute();
     _routes[NetworkSampleRoute.networkSampleRoute] = (context) => NetworkSampleRoute();
-    _routes[GestureSampleRoute.gestureSampleRoute] = (context) => GestureSampleRoute();
+    _routes[GestureSampleRoute.gestureSampleRouteDemo] = (context) => GestureSampleRoute();
     _routes[ImagesSampleRoute.imagesSampleRoute] = (context) => ImagesSampleRoute();
-    _routes[AnimatedListRoute.animatedListSample] = (context) => AnimatedListRoute();
+    _routes[AnimatedListRoute.animatedListDemo] = (context) => AnimatedListRoute();
     _routes[StartupNameRoute.startupName] = (context) => StartupNameRoute();
   }
 

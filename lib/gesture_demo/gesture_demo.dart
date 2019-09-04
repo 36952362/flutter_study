@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 
 class GestureSampleRoute extends StatelessWidget{
-  static final String gestureSampleRoute = '处理手势';
+  static final String gestureSampleRouteDemo = '处理手势';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(gestureSampleRoute),
+        title: Text(gestureSampleRouteDemo),
       ),
       body: SmoothClose(),
       );
@@ -25,7 +25,7 @@ class GestureListen extends StatelessWidget{
       onTap: () =>_onTap(context),
       child: Container(
         padding: EdgeInsets.all(12.0),
-        child: Text(GestureSampleRoute.gestureSampleRoute),
+        child: Text(GestureSampleRoute.gestureSampleRouteDemo),
       ),
     );
   }
