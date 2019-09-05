@@ -8,4 +8,6 @@
 
 ##[003-AnimatedList演示](./docs/003-animatedlist_demo.md)
 
+##[004-网络加载图片演示](./docs/004-network_load_images_demo.md)
+
 ##[注意事项](./docs/notes.md)

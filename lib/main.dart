@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'shared_preference_demo/shared_preference_demo.dart';
 import 'startup_name_demo/statup_name_demo.dart';
 import 'animatedlist_demo/animatedlist_demo.dart';
-import 'images_demo/images_sample.dart';
+import 'network_load_images_demo//network_load_images_demo.dart';
 import 'gesture_demo/gesture_demo.dart';
 import 'network_demo/network_sample.dart';
 import 'websocket_sample/websocket_sample.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
     _listViewItems.add(WebSocketSampleRoute.webSocketSampleRoute);
     _listViewItems.add(NetworkSampleRoute.networkSampleRoute);
     _listViewItems.add(GestureSampleRoute.gestureSampleRouteDemo);
-    _listViewItems.add(ImagesSampleRoute.imagesSampleRoute);
+    _listViewItems.add(ImagesSampleRoute.networkLoadImagesDemo);
     _listViewItems.add(AnimatedListRoute.animatedListDemo);
     _listViewItems.add(StartupNameRoute.startupName);
   }
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
     _routes[WebSocketSampleRoute.webSocketSampleRoute] = (context) => WebSocketSampleRoute();
     _routes[NetworkSampleRoute.networkSampleRoute] = (context) => NetworkSampleRoute();
     _routes[GestureSampleRoute.gestureSampleRouteDemo] = (context) => GestureSampleRoute();
-    _routes[ImagesSampleRoute.imagesSampleRoute] = (context) => ImagesSampleRoute();
+    _routes[ImagesSampleRoute.networkLoadImagesDemo] = (context) => ImagesSampleRoute();
     _routes[AnimatedListRoute.animatedListDemo] = (context) => AnimatedListRoute();
     _routes[StartupNameRoute.startupName] = (context) => StartupNameRoute();
   }
