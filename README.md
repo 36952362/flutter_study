@@ -12,4 +12,6 @@
 
 ##[005-Dismissible演示](./docs/005-dismissible_demo.md)
 
+##[006-websocket演示](./docs/006-websocket_demo.md)
+
 ##[注意事项](./docs/notes.md)

@@ -2,21 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-
-class WebSocketSampleRoute extends StatefulWidget{
-  static final String webSocketSampleRoute = "使用WebSockets";
+class WebSocketSampleRoute extends StatefulWidget {
+  static final String webSocketSampleRoute = "WebSockets演示";
   final WebSocketChannel channel = IOWebSocketChannel.connect("ws://echo.websocket.org");
+
   @override
   State<StatefulWidget> createState() => _WebSocketSampleState();
-
 }
 
-class _WebSocketSampleState extends State<WebSocketSampleRoute>{
+class _WebSocketSampleState extends State<WebSocketSampleRoute> {
   TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(WebSocketSampleRoute.webSocketSampleRoute),
@@ -31,7 +29,6 @@ class _WebSocketSampleState extends State<WebSocketSampleRoute>{
   }
 
   Widget _buildBody(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -40,27 +37,25 @@ class _WebSocketSampleState extends State<WebSocketSampleRoute>{
           Form(
             child: TextFormField(
               controller: _controller,
-              decoration: InputDecoration(labelText: 'Send a message'),
+              decoration: InputDecoration(labelText: 'Send a message'),///提示信息
             ),
           ),
           StreamBuilder(
             stream: widget.channel.stream,
-            builder: (context, snapshot){
+            builder: (context, snapshot) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 24.0),
-                child: Text(snapshot.hasData?'${snapshot.data}':''),
+                child: Text(snapshot.hasData ? '${snapshot.data}' : ''),
               );
             },
           ),
         ],
       ),
     );
-
   }
 
-
   void _sendMessage() {
-    if(_controller.text.isNotEmpty){
+    if (_controller.text.isNotEmpty) {
       widget.channel.sink.add(_controller.text);
     }
   }
