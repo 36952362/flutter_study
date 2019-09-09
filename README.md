@@ -14,4 +14,6 @@
 
 ##[006-websocket演示](./docs/006-websocket_demo.md)
 
-##[注意事项](./docs/notes.md)
+##[007-布局演示](./docs/007-layout_demo.md)
+
+##[备注](./docs/notes.md)

@@ -8,8 +8,7 @@ import 'network_load_images_demo//network_load_images_demo.dart';
 import 'dismissible_demo/dismissible_demo.dart';
 import 'network_demo/network_sample.dart';
 import 'websocket_sample/websocket_sample.dart';
-import 'layout_demo/layout_demo1.dart';
-import 'layout_demo/layout_demo2.dart';
+import 'layout_demo/layout_demo.dart';
 import 'animationcontroller_demo/animationcontroller_sample.dart';
 
 void main() => runApp(MyApp());
@@ -29,7 +28,6 @@ class MyApp extends StatelessWidget {
     _listViewItems.add(SharedPreferenceSampleRoute.sharedPreferenceSample);
     _listViewItems.add(AnimationControllerSampleRoute.animationControllerDemo);
     _listViewItems.add(LayoutSample1Route.layoutDemoRoute);
-    _listViewItems.add(LayoutSample2Route.layoutDemoRoute);
     _listViewItems.add(WebSocketSampleRoute.webSocketSampleRoute);
     _listViewItems.add(NetworkSampleRoute.networkSampleRoute);
     _listViewItems.add(DismissibleDemo.dismissibleDemo);
@@ -45,7 +43,6 @@ class MyApp extends StatelessWidget {
     _routes[SharedPreferenceSampleRoute.sharedPreferenceSample] = (context) => SharedPreferenceSampleRoute();
     _routes[AnimationControllerSampleRoute.animationControllerDemo] = (context) => AnimationControllerSampleRoute();
     _routes[LayoutSample1Route.layoutDemoRoute] = (context) => LayoutSample1Route();
-    _routes[LayoutSample2Route.layoutDemoRoute] = (context) => LayoutSample2Route();
     _routes[WebSocketSampleRoute.webSocketSampleRoute] = (context) => WebSocketSampleRoute();
     _routes[NetworkSampleRoute.networkSampleRoute] = (context) => NetworkSampleRoute();
     _routes[DismissibleDemo.dismissibleDemo] = (context) => DismissibleDemo();
@@ -76,9 +73,6 @@ class MyHomePage extends StatelessWidget {
   ///通过列表项中的名字查找在_routes中映射并跳转到相应的路由
   void _jumpDetailRoute(BuildContext context, String itemName) async {
     await Navigator.pushNamed(context, itemName);
-
-    ///设置屏幕方向
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   }
 
   @override

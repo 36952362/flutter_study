@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LayoutSample1Route extends StatelessWidget {
-  static final String layoutDemoRoute = '构建布局1';
+  static final String layoutDemoRoute = '构建布局';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,12 +65,11 @@ class LayoutSample1Route extends StatelessWidget {
   }
 
   Column _buildContactColumn(BuildContext context, IconData icon, String label){
-    Color color = Theme.of(context).primaryColor;
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Icon(icon, color: color),
+        Icon(icon, color: Colors.white),
         Container(
           margin: const EdgeInsets.only(top: 8.0),
           child: Text(
@@ -78,7 +77,7 @@ class LayoutSample1Route extends StatelessWidget {
             style: TextStyle(
               fontSize: 12.0,
               fontWeight: FontWeight.w400,
-              color: color,
+              color: Colors.white,
             ),
           ),
         ),
