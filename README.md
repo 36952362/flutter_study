@@ -18,4 +18,6 @@
 
 ##[008-动画演示](./docs/008-animation_demo.md)
 
+##[009-sharedPreference演示](./docs/009-shared_preference_demo.md)
+
 ##[备注](./docs/notes.md)
