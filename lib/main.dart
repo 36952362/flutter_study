@@ -9,7 +9,7 @@ import 'dismissible_demo/dismissible_demo.dart';
 import 'network_demo/network_sample.dart';
 import 'websocket_sample/websocket_sample.dart';
 import 'layout_demo/layout_demo.dart';
-import 'animationcontroller_demo/animationcontroller_sample.dart';
+import 'animation_demo/animation_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   ///初始化ListView中每一项的内容显示
   _initListViewItems() {
     _listViewItems.add(SharedPreferenceSampleRoute.sharedPreferenceSample);
-    _listViewItems.add(AnimationControllerSampleRoute.animationControllerDemo);
+    _listViewItems.add(AnimationDemoRoute.animationDemo);
     _listViewItems.add(LayoutSample1Route.layoutDemoRoute);
     _listViewItems.add(WebSocketSampleRoute.webSocketSampleRoute);
     _listViewItems.add(NetworkSampleRoute.networkSampleRoute);
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
   ///为ListView中的每一项设置相应的路由，然后通过[Navigator.pushNamed]的跳转的相应路由
   _initRoutes() {
     _routes[SharedPreferenceSampleRoute.sharedPreferenceSample] = (context) => SharedPreferenceSampleRoute();
-    _routes[AnimationControllerSampleRoute.animationControllerDemo] = (context) => AnimationControllerSampleRoute();
+    _routes[AnimationDemoRoute.animationDemo] = (context) => AnimationDemoRoute();
     _routes[LayoutSample1Route.layoutDemoRoute] = (context) => LayoutSample1Route();
     _routes[WebSocketSampleRoute.webSocketSampleRoute] = (context) => WebSocketSampleRoute();
     _routes[NetworkSampleRoute.networkSampleRoute] = (context) => NetworkSampleRoute();

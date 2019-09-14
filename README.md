@@ -16,4 +16,6 @@
 
 ##[007-布局演示](./docs/007-layout_demo.md)
 
+##[008-动画演示](./docs/008-animation_demo.md)
+
 ##[备注](./docs/notes.md)
