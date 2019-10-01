@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_study/controller_demo/textfield_controller_demo.dart';
+import 'package:flutter_study/scroll_listener_demo/notification_listener_demo.dart';
+import 'package:flutter_study/scroll_listener_demo/scroll_controller_demo.dart';
 import 'package:flutter_study/scroll_listener_demo/scroll_listener_demo.dart';
 
 import 'shared_preference_demo/shared_preference_demo.dart';
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
 
   ///初始化ListView中每一项的内容显示
   _initListViewItems() {
+    _listViewItems.add(NotificationListenerDemo.notificationListenerDemo);
+    _listViewItems.add(ScrollControllerDemo.scrollControllerDemo);
     _listViewItems.add(ScrollListenerDemo.scrollListenerDemo);
     _listViewItems.add(ClipDemo.clipDemo);
     _listViewItems.add(TextFieldControllerDemo.textFieldControllerDemo);
@@ -46,6 +50,8 @@ class MyApp extends StatelessWidget {
   ///
   ///为ListView中的每一项设置相应的路由，然后通过[Navigator.pushNamed]的跳转的相应路由
   _initRoutes() {
+    _routes[NotificationListenerDemo.notificationListenerDemo] = (context )=> NotificationListenerDemo();
+    _routes[ScrollControllerDemo.scrollControllerDemo] = (context) => ScrollControllerDemo();
     _routes[ScrollListenerDemo.scrollListenerDemo] = (context) => ScrollListenerDemo();
     _routes[ClipDemo.clipDemo] = (context) => ClipDemo();
     _routes[TextFieldControllerDemo.textFieldControllerDemo] = (context) => TextFieldControllerDemo();
